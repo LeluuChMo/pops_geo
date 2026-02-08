@@ -1,0 +1,12 @@
+@media (max-width: 768px) {
+    .logo {
+        font-size: 20px;
+    }
+  nav a {
+    display: none;
+  }
+  .hidden-burger-menu {
+    display: flex;
+    filter: invert(1);
+  }
+}
