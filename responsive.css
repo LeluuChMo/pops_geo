@@ -9,4 +9,14 @@
     display: flex;
     filter: invert(1);
   }
+  .main-poster {
+    margin-top: 0%;
+  }
+  .poster-content {
+    font-size: 12px;
+  }
+  .poster-button {
+    font-size: 12px;
+
+  }
 }
