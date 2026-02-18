@@ -1,4 +1,15 @@
-// Slider
+// Header
+window.addEventListener("scroll", function () {
+  var header = document.getElementById("header");
+  if (window.scrollY > 0) {
+    header.classList.add("opaque");
+  } else {
+    header.classList.remove("opaque");
+  }
+});
+
+
+//  Slider
   let counter = 1;
   const totalSlides = 3; // Change this to match your number of slides
 

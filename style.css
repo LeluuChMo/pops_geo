@@ -27,7 +27,15 @@ body {
 
 header {
     background-color: #9B111E;
-  
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    transition: 3s;
+    width: 100%; 
+}
+
+.fixed-header.opaque {
+  opacity: 0.7;
 }
 
 .header-box {
@@ -201,20 +209,6 @@ margin-bottom: 40px;
 .read-more:hover {
   background: #e63946;
 }
-
-/* 📱 Mobile */
-@media (max-width: 768px) {
-  .blog-item,
-  .blog-item.reverse {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .blog-content {
-    max-width: 100%;
-  }
-}
-
 
 
 /* Footer */
