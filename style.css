@@ -3,18 +3,22 @@
   padding: 0%;
   margin: 0%;
 }
+
 body {
-    /* background-color: black; */
     background-color: #000000;
+    font-family: "alk rex", sans-serif;
 }
+
 @font-face {
     font-family: "bpg le";
     src: url(fonts/bpg-le-studio-04-webfont.ttf) format(truetype);
 }
+
 @font-face {
     font-family: "alk rex";
     src: url(fonts/alk-rex-bold-79368871481.otf) format(truetype);
 }
+
 .container {
   max-width: 1200px;
   margin: 0 auto;      
@@ -22,25 +26,27 @@ body {
 }
 
 header {
-    /* background-color: #B00000; */
     background-color: #9B111E;
   
-  }
+}
+
 .header-box {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+
 .logo {
     font-family: "alk rex", sans-serif;
     font-weight: 900;
     font-size: 30px;
-
 }
+
 .logo a, nav a {
     text-decoration: none;
     color: #fff;
 }
+
 nav a:hover {
     color: #000000;
 }
@@ -51,11 +57,18 @@ nav {
     gap: 20px;
     font-weight: 700;
 }
+
 .hidden-burger-menu {
     display: none;
 }
 
-/* Container hides anything outside its width */
+.red-color {
+  border-bottom: 1px solid #9B111E
+  
+}
+
+/* Slider */
+
 .slider {
   width: 100%;
   max-width: 100%;
@@ -65,10 +78,9 @@ nav {
   margin: auto;
 }
 
-/* Horizontal track for images */
 .slides-container {
   display: flex;
-  width: 300%; /* 100% * number of slides */
+  width: 300%;
   transition: transform 0.5s ease-in-out;
 }
 
@@ -81,17 +93,14 @@ nav {
   display: block;
 }
 
-/* Logic: Move the track based on which radio is checked */
 #img1:checked ~ .slides-container { transform: translateX(0%); }
 #img2:checked ~ .slides-container { transform: translateX(-33.33%); }
 #img3:checked ~ .slides-container { transform: translateX(-66.66%); }
 
-/* Hide original radio buttons */
 input[type="radio"] {
   display: none;
 }
 
-/* Style navigation dots */
 .nav-dots {
   position: absolute;
   bottom: 10px;
@@ -108,7 +117,6 @@ input[type="radio"] {
   cursor: pointer;
 }
 
-/* Highlight active dot */
 #img1:checked ~ .nav-dots label[for="img1"],
 #img2:checked ~ .nav-dots label[for="img2"],
 #img3:checked ~ .nav-dots label[for="img3"] {
@@ -120,7 +128,21 @@ input[type="radio"] {
 
 .blog-section {
   padding: 80px 20px;
-  background: #fff;
+  background: #000;
+}
+
+.header-line {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1200px;
+margin-bottom: 40px;
+  background-color: #9B111E;
+}
+
+.header-line h2 {
+  color: #fff;
+  font-size:35px;
 }
 
 .blog-container {
@@ -155,6 +177,7 @@ input[type="radio"] {
 .blog-content h3 {
   font-size: 26px;
   margin-bottom: 15px;
+  color: #fff;
 }
 
 .blog-content p {
@@ -167,7 +190,7 @@ input[type="radio"] {
 .read-more {
   display: inline-block;
   padding: 12px 28px;
-  background: #000;
+  background: #9B111E;
   color: #fff;
   text-decoration: none;
   border-radius: 6px;
