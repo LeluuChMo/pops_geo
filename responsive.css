@@ -1,6 +1,6 @@
 @media (max-width: 768px) {
     .logo img {
-        width: 40px;
+        width: 50px;
     }
   nav a {
     display: none;
@@ -9,9 +9,6 @@
     display: flex;
     filter: invert(1);
   }
-  /* .slider {
-    margin-top: 80px;
-  } */
   .main-poster {
     margin-top: 0%;
   }
