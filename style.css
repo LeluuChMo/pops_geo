@@ -149,6 +149,7 @@ input[type="radio"] {
 }
 
 .header-line h2 {
+  display: flex;
   align-items: center;
   color: #fff;
   font-size:35px;
