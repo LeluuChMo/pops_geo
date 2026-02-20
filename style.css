@@ -44,10 +44,8 @@ header {
     align-items: center;
 }
 
-.logo {
-    font-family: "alk rex", sans-serif;
-    font-weight: 900;
-    font-size: 30px;
+.logo img {
+width: 60px;
 }
 
 .logo a, nav a {
