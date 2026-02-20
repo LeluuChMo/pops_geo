@@ -31,4 +31,7 @@
   .blog-content {
     max-width: 100%;
   }
+  .header-line h2 {
+    font-size: 25px;
+  }
 }
