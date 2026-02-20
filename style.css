@@ -149,8 +149,6 @@ input[type="radio"] {
 }
 
 .header-line h2 {
-  display: flex;
-  align-items: center;
   color: #fff;
   font-size:35px;
 }
@@ -234,11 +232,11 @@ input[type="radio"] {
 .footer-col h4 {
   margin-bottom: 15px;
 }
-
 .footer-text {
   font-size: 14px;
   line-height: 1.6;
   color: #ccc;
+  margin-top: 10px;
 }
 
 .footer-col ul {
