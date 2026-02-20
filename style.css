@@ -143,14 +143,14 @@ input[type="radio"] {
   justify-content: center;
   align-items: center;
   max-width: 1200px;
-margin-bottom: 40px;
+  margin-bottom: 40px;
+  padding: 5px;
   background-color: #9B111E;
 }
 
 .header-line h2 {
   color: #fff;
   font-size:35px;
-  padding: 5px;
 }
 
 .blog-container {
