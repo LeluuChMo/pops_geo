@@ -262,6 +262,10 @@ input[type="radio"] {
   border-bottom: 1px solid #ccc;
   padding-bottom: 8px;
 } 
+.footer-col p {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
 
 .social-links a {
   display: inline-block;
