@@ -9,9 +9,9 @@
     display: flex;
     filter: invert(1);
   }
-  .slider {
+  /* .slider {
     margin-top: 80px;
-  }
+  } */
   .main-poster {
     margin-top: 0%;
   }
