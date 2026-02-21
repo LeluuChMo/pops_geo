@@ -2,13 +2,6 @@
     .logo img {
         width: 50px;
     }
-  nav a {
-    display: none;
-  }
-  .hidden-burger-menu {
-    display: flex;
-    filter: invert(1);
-  }
   .main-poster {
     margin-top: 0%;
   }
