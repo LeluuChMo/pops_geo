@@ -33,5 +33,40 @@
   }
   .header-line h2 {
     font-size: 25px;
+  } }
+
+
+
+  @media (max-width: 768px) {
+
+  nav {
+    position: fixed;
+    inset: 0;
+    background-color: #9B111E;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s ease;
+  }
+
+  nav.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  nav a {
+    font-size: 22px;
+  }
+
+  .burger {
+    display: block;
+    position: fixed;
+    top: 20px;
+    right: 20px;
   }
 }
