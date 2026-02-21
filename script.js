@@ -22,3 +22,16 @@ window.addEventListener("scroll", function () {
       counter = 1; // Reset to the first slide after the last one
     }
   }, 3000); // Change 3000 to your preferred time in milliseconds (e.g., 5000 for 5 seconds)
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const burger = document.getElementById("burger");
+  const nav = document.getElementById("nav");
+
+  burger.addEventListener("click", () => {
+    burger.classList.toggle("active");
+    nav.classList.toggle("active");
+  });
+});
