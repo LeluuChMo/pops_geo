@@ -73,7 +73,9 @@ nav {
   border-bottom: 1px solid #9B111E
   
 }
-
+.mainpic {
+  display: none;
+}
 /* Slider */
 
 .slider {
