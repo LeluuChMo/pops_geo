@@ -30,11 +30,11 @@
     left: 50%;
     transform: translate(-50%, -50%); /* perfectly center */
     color: white; /* change text color to stand out */
-    font-size: 2rem; /* adjust size */
+    font-size: 1rem; /* adjust size */
     font-weight: bold;
-
     text-align: center;
     text-shadow: 2px 2px 5px red, -2px -2px 5px darkred;
+    opacity: 0.5;
 }
   .slider {
     display: none;
@@ -86,7 +86,7 @@
   .burger {
     display: block;
     position: fixed;
-    top: 20px;
+    top: 30px;
     right: 20px;
   }
 }
