@@ -28,9 +28,9 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); /* perfectly center */
-    color: white; /* change text color to stand out */
-    font-size: 1rem; /* adjust size */
+    transform: translate(-50%, -50%); 
+    color: white; 
+    font-size: 1rem;
     font-weight: bold;
     text-align: center;
     text-shadow: 2px 2px 5px red, -2px -2px 5px darkred;
@@ -47,7 +47,6 @@
     flex-direction: column;
     text-align: center;
   }
-
   .blog-content {
     max-width: 100%;
   }
@@ -55,38 +54,36 @@
     font-size: 25px;
   } }
 
-
-
   @media (max-width: 768px) {
-
   nav {
     position: fixed;
     inset: 0;
     background-color: #9B111E;
-
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 25px;
-
     opacity: 0;
     pointer-events: none;
     transition: 0.3s ease;
   }
-
   nav.active {
     opacity: 1;
     pointer-events: auto;
   }
-
   nav a {
     font-size: 22px;
   }
-
   .burger {
     display: block;
     position: fixed;
     top: 30px;
     right: 20px;
+  }
+}
+
+@media (min-width: 768px) {
+  .product-card {
+    min-width: 33.333%;
   }
 }
