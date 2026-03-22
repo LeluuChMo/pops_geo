@@ -77,6 +77,30 @@ nav {
   display: none;
 }
 
+.products-page {
+  margin-top: 100px;
+  color: white;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
+
+.product-card {
+  background: #111;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.product-card img {
+  width: 100%;
+}
+
 
 /* Slider */
 
@@ -576,3 +600,93 @@ input[type="radio"] {
 
 .arrow-prev { left: 5px; }
 .arrow-next { right: 5px; }
+
+.contact-page {
+  margin-top: 120px;
+  margin-bottom: 50px;
+  color: #fff;
+
+}
+
+.contact-title {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 50px;
+  letter-spacing: 2px;
+}
+
+/* GRID LAYOUT */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+/* LEFT SIDE */
+.contact-info {
+  background: #111;
+  padding: 30px;
+  border-radius: 12px;
+  border: 1px solid #333;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.info-item span {
+  font-size: 20px;
+}
+
+/* RIGHT SIDE */
+.contact-social {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+}
+
+.social-btn {
+  display: block;
+  text-align: center;
+  padding: 15px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.social-btn i {
+  font-size: 20px;
+}
+
+/* WHATSAPP */
+.whatsapp {
+  background: #25D366;
+}
+
+/* INSTAGRAM */
+.instagram {
+  background: #9B111E;
+}
+
+/* HOVER */
+.social-btn:hover {
+  transform: translateY(-3px);
+  opacity: 0.9;
+}
+
+.contact-info:hover {
+  border-color: #9B111E;
+}
