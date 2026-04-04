@@ -686,6 +686,9 @@ font-size: 50px;
   color: #ccc;
   line-height: 1.6;
 }
+.about-info:hover {
+  border-color: #9B111E;
+}
 
 /* RIGHT */
 .about-features {
