@@ -99,3 +99,43 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* MAIN SECTION */
+
+@media (max-width: 768px) {
+  .main-section {
+    display: none;
+  }
+}
+
+/* ABOUT PAGE */
+
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-title {
+    font-size: 26px;
+  }
+
+  .about-info {
+    padding: 20px;
+  }
+
+  .feature-box {
+    padding: 15px;
+  }
+}
+
+/* TERMS PAGE */
+
+@media (max-width: 768px) {
+  .terms-title {
+    font-size: 26px;
+  }
+
+  .terms-box {
+    padding: 20px;
+  }
+}
