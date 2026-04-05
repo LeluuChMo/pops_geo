@@ -77,29 +77,84 @@ nav {
   display: none;
 }
 
-.products-page {
-  margin-top: 100px;
+ .products-page {
+  margin-top: 120px;
   color: white;
 }
 
-.products-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  margin-top: 50px;
-  margin-bottom: 100px;
-}
-
-.product-card {
-  background: #111;
-  padding: 15px;
-  border-radius: 10px;
+.products-title {
   text-align: center;
+  font-size: 32px;
+  margin-bottom: 50px;
+  letter-spacing: 2px;
+}
+.products-list {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin: 50px 0 100px;
 }
 
-.product-card img {
-  width: 100%;
+.product-item {
+  display: flex;
+  gap: 20px;
+  background: #111;
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 20px;
+  align-items: flex-start;
+  transition: 0.3s;
 }
+
+.product-item:hover {
+  transform: translateY(-5px);
+}
+
+/* IMAGE (same as your card style) */
+.product-image {
+  width: 220px;
+  height: 220px;
+  flex-shrink: 0;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* TEXT */
+.product-info {
+  flex: 1;
+}
+
+.product-info h3 {
+  margin-bottom: 5px;
+}
+
+.product-info p {
+  font-size: 14px;
+  color: #aaa;
+}
+
+.price {
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+/* BUTTON */
+.buy-btn {
+  display: inline-block;
+  background: #ff0033;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
 
 /* Blog */
 
