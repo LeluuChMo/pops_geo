@@ -77,6 +77,36 @@ nav {
   display: none;
 }
 
+.disclaimer {
+  max-width: 600px;          /* optional width limit */
+  margin: 20px auto;        
+  padding: 15px 20px;
+  border: 2px solid red;     /* red border */
+  border-radius: 10px;
+  text-align: center;        /* center text */
+  color: red;
+  background: #fff0f0;       /* light red background for contrast */
+  font-weight: bold;
+  font-size: 20px;
+}
+
+/* .first {
+  color: #9B111E;
+} */
+.first {
+  background: linear-gradient(
+    90deg,
+    red,
+    orange,
+    yellow,
+    green,
+    blue,
+    indigo,
+    violet
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
  .products-page {
   margin-top: 120px;
   color: white;
@@ -109,7 +139,6 @@ nav {
 .product-item:hover {
   transform: translateY(-5px);
 }
-
 /* IMAGE (same as your card style) */
 .product-image {
   width: 220px;
@@ -134,7 +163,6 @@ nav {
 }
 
 .product-info p {
-  font-size: 14px;
   color: #aaa;
 }
 
@@ -807,3 +835,23 @@ font-size: 50px;
 .terms-box:hover {
   border-color: #9B111E;
 }
+.bar {
+  width: 100%;          /* takes full width of card */
+  max-width: 200px;     /* optional limit */
+  height: 6px;
+  background: #222;
+  border-radius: 10px;
+  overflow: hidden;
+    }
+
+    .fill {
+      height: 100%;
+      background: linear-gradient(90deg, yellow, orange, red);
+    }
+
+    /* levels */
+    .l1 { width: 20%; }
+    .l2 { width: 40%; }
+    .l3 { width: 60%; }
+    .l4 { width: 80%; }
+    .l5 { width: 100%;}

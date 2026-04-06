@@ -150,3 +150,16 @@
     height: 220px;
   }
 }
+
+@media (max-width: 600px) {
+  .bar {
+    height: 8px;
+  }
+}
+
+@media (max-width: 600px) {
+  .disclaimer {
+    padding: 10px 15px;
+    font-size: 13px;
+  }
+}
