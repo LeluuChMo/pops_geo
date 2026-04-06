@@ -178,4 +178,7 @@
   .blogpage-card img {
     width: 100%;
   }
+  .partners-section .header-line h2 {
+    font-size: 25px;
+  }
 }

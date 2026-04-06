@@ -301,6 +301,9 @@ nav {
   max-width: 1200px;
   margin: auto;
 }
+.partners-wrapper img {
+  width: 200px;
+}
 
 /* Individual partner logo card */
 .partner-card {
@@ -314,7 +317,7 @@ nav {
 }
 
 .partner-card img {
-  max-width: 150px;
+  width: 200px;
   max-height: 80px;
   object-fit: contain;
   display: block;
