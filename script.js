@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
   burger.addEventListener("click", () => {
     burger.classList.toggle("active");
     nav.classList.toggle("active");
+    document.body.classList.toggle("menu-open"); // ✅ add this here
   });
 });
 
@@ -82,3 +83,4 @@ arrowNext.addEventListener("click", () => {
 arrowPrev.addEventListener("click", () => {
   wrapper.scrollBy({ left: -scrollAmount, behavior: "smooth" });
 });
+
