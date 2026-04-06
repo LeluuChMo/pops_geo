@@ -57,6 +57,7 @@
   @media (max-width: 768px) {
   nav {
     position: fixed;
+    z-index: 1000;
     inset: 0;
     background-color: #9B111E;
     flex-direction: column;
@@ -73,10 +74,15 @@
   }
   nav a {
     font-size: 22px;
+    width: 80%;
+  text-align: center;
+  padding: 15px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
   }
   .burger {
     display: block;
     position: fixed;
+    z-index: 2000;
     top: 30px;
     right: 20px;
   }
@@ -161,5 +167,15 @@
   .disclaimer {
     padding: 10px 15px;
     font-size: 13px;
+  }
+}
+
+@media (max-width: 600px) {
+  .blogpage-card {
+    flex-direction: column;
+  }
+
+  .blogpage-card img {
+    width: 100%;
   }
 }
