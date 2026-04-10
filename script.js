@@ -1,4 +1,5 @@
 // Header
+
 window.addEventListener("scroll", function () {
   var header = document.getElementById("header");
   if (window.scrollY > 0) {
@@ -9,6 +10,7 @@ window.addEventListener("scroll", function () {
 });
 
 //  Slider
+
   let counter = 1;
   const totalSlides = 3;
 
@@ -31,56 +33,45 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-const slider = document.querySelector(".product-wrapper");
+const wrapper = document.querySelector(".product-wrapper");
+const arrowNext = document.querySelector(".arrow-next");
+const arrowPrev = document.querySelector(".arrow-prev");
+
+arrowNext.addEventListener("click", () => {
+  const cardWidth = wrapper.querySelector(".product-card").offsetWidth + 20; // + gap
+  wrapper.scrollBy({ left: cardWidth, behavior: "smooth" });
+});
+
+arrowPrev.addEventListener("click", () => {
+  const cardWidth = wrapper.querySelector(".product-card").offsetWidth + 20;
+  wrapper.scrollBy({ left: -cardWidth, behavior: "smooth" });
+});
+
+//DRAG SCROLLING
 
 let isDown = false;
 let startX;
 let scrollLeft;
 
-slider.addEventListener("mousedown", (e) => {
+wrapper.addEventListener("mousedown", (e) => {
   isDown = true;
-  slider.classList.add("active");
-  startX = e.pageX - slider.offsetLeft;
-  scrollLeft = slider.scrollLeft;
+  wrapper.classList.add("active");
+  startX = e.pageX - wrapper.offsetLeft;
+  scrollLeft = wrapper.scrollLeft;
 });
 
-slider.addEventListener("mouseleave", () => {
+wrapper.addEventListener("mouseleave", () => {
   isDown = false;
 });
 
-slider.addEventListener("mouseup", () => {
+wrapper.addEventListener("mouseup", () => {
   isDown = false;
 });
 
-slider.addEventListener("mousemove", (e) => {
+wrapper.addEventListener("mousemove", (e) => {
   if (!isDown) return;
   e.preventDefault();
-  const x = e.pageX - slider.offsetLeft;
-  const walk = (x - startX) * 1.5; 
-  slider.scrollLeft = scrollLeft - walk;
+  const x = e.pageX - wrapper.offsetLeft;
+  const walk = (x - startX) * 1.5; // speed
+  wrapper.scrollLeft = scrollLeft - walk;
 });
-
-slider.addEventListener("touchstart", (e) => {
-  startX = e.touches[0].pageX;
-  scrollLeft = slider.scrollLeft;
-});
-
-slider.addEventListener("touchmove", (e) => {
-  const x = e.touches[0].pageX;
-  const walk = (x - startX) * 1.5;
-  slider.scrollLeft = scrollLeft - walk;
-});
-
-const wrapper = document.querySelector(".product-wrapper");
-const arrowNext = document.querySelector(".arrow-next");
-const arrowPrev = document.querySelector(".arrow-prev");
-const scrollAmount = 300;
-
-arrowNext.addEventListener("click", () => {
-  wrapper.scrollBy({ left: scrollAmount, behavior: "smooth" });
-});
-
-arrowPrev.addEventListener("click", () => {
-  wrapper.scrollBy({ left: -scrollAmount, behavior: "smooth" });
-});
-
