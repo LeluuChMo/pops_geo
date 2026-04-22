@@ -395,7 +395,11 @@ nav {
 .social-links img:hover {
   background-color: #fff;
 }
-
+.information {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 .footer-bottom {
   margin-top: 40px;
   padding-top: 20px;
@@ -628,6 +632,13 @@ nav {
   font-size: 16px;
 }
 
+.info-item a {
+  text-decoration: none;
+  color: #fff;
+}
+.info-item a:hover {
+  color: #e63946;
+}
 .info-item span {
   font-size: 20px;
 }
@@ -669,6 +680,10 @@ nav {
 /* INSTAGRAM */
 .instagram {
   background: #9B111E;
+}
+/* FACEBOOK */
+.facebook {
+  background: #1877F2;
 }
 
 /* HOVER */
