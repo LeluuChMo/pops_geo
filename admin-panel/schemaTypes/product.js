@@ -24,6 +24,12 @@ export default {
   title: 'მარაგშია?',
   type: 'boolean',
   initialValue: true
-}
+},
+{
+  name: 'volume',
+  title: 'მოცულობა (მლ)',
+  type: 'string',
+  description: 'მაგალითად: 10მლ, 30მლ'
+},
   ]
 }
