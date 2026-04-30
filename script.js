@@ -17,19 +17,19 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Sanity-დან პროდუქტების წამოღება
+    // Sanity-დან მონაცემების წამოღება
     loadProducts();
+    loadEvents(); // <-- აქ დავამატეთ ივენთების გამოძახება
 
     // სკროლერის (ისრების) გააქტიურება
     setupSlider();
 });
 
-// 3. მთავარი ფუნქცია: Sanity-დან მონაცემების წამოღება და ჩასმა
+// 3. მთავარი ფუნქცია: Sanity-დან პროდუქტების წამოღება
 async function loadProducts() {
     const container = document.getElementById('products-container');
     if (!container) return;
 
-    // ვეუბნებით Sanity-ს, რომ წამოიღოს სახელი, ფასი, სტატუსი და სურათი
     const QUERY = encodeURIComponent('*[_type == "product"]{title, price, isStock, volume, "imageUrl": image.asset->url}');
     const URL = `https://${PROJECT_ID}.api.sanity.io/v2021-10-21/data/query/${DATASET}?query=${QUERY}`;
 
@@ -38,7 +38,6 @@ async function loadProducts() {
         const data = await response.json();
 
         if (data.result && data.result.length > 0) {
-            // HTML-ის აწყობა Sanity-ს მონაცემებით
             const sanityProductsHtml = data.result.map(product => {
                 const stockClass = product.isStock !== false ? 'in-stock' : 'out-of-stock';
                 const stockText = product.isStock !== false ? 'მარაგშია' : 'არ არის მარაგში';
@@ -59,16 +58,38 @@ async function loadProducts() {
                 `;
             }).join('');
 
-            // თუ გინდა ძველი პროდუქტებიც დარჩეს, გამოიყენე +=
-            // თუ გინდა მხოლოდ Sanity-ს პროდუქტები ჩანდეს, გამოიყენე =
             container.innerHTML += sanityProductsHtml;
         }
     } catch (error) {
-        console.error("Sanity Error:", error);
+        console.error("Sanity Products Error:", error);
     }
 }
 
-// 4. სკროლერის ფუნქცია (ისრებით სასრიალოდ)
+// --- ახალი ფუნქცია: ივენთების წამოღება ---
+async function loadEvents() {
+    const eventsContainer = document.getElementById('events-container');
+    if (!eventsContainer) return;
+
+    const EVENT_QUERY = encodeURIComponent('*[_type == "event"]{name, link, "logoUrl": logo.asset->url}');
+    const EVENT_URL = `https://${PROJECT_ID}.api.sanity.io/v2021-10-21/data/query/${DATASET}?query=${EVENT_QUERY}`;
+
+    try {
+        const response = await fetch(EVENT_URL);
+        const data = await response.json();
+
+        if (data.result && data.result.length > 0) {
+            eventsContainer.innerHTML = data.result.map(event => `
+                <a href="${event.link || '#'}" target="_blank" class="partner-card">
+                    <img src="${event.logoUrl}" alt="${event.name}">
+                </a>
+            `).join('');
+        }
+    } catch (error) {
+        console.error("Sanity Events Error:", error);
+    }
+}
+
+// 4. სკროლერის ფუნქცია
 function setupSlider() {
     const wrapper = document.querySelector(".product-wrapper");
     const arrowNext = document.querySelector(".arrow-next");
@@ -91,7 +112,6 @@ function setupSlider() {
             }
         });
 
-        // Drag Scrolling (მაუსით გაწევა)
         let isDown = false;
         let startX;
         let scrollLeft;
@@ -114,7 +134,7 @@ function setupSlider() {
     }
 }
 
-// ჰედერის გაფერადება სკროლისას
+// ჰედერის გაფერადება
 window.addEventListener("scroll", function () {
     const header = document.getElementById("header");
     if (header) {
