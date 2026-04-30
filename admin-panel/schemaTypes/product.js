@@ -21,7 +21,7 @@ export default {
     },
     {
   name: 'isStock',
-  title: 'მარაგშია?',
+  title: 'მარაგშია',
   type: 'boolean',
   initialValue: true
 },
