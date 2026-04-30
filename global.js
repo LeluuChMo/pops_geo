@@ -1,6 +1,3 @@
-const PROJECT_ID = '156rdx1d';
-const DATASET = "production";
-
 async function loadFooter() {
     const QUERY = encodeURIComponent('*[_type == "footer"][0]');
     const URL = `https://${PROJECT_ID}.api.sanity.io/v2021-10-21/data/query/${DATASET}?query=${QUERY}`;
