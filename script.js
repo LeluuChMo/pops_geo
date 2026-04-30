@@ -30,7 +30,7 @@ async function loadProducts() {
     if (!container) return;
 
     // ვეუბნებით Sanity-ს, რომ წამოიღოს სახელი, ფასი, სტატუსი და სურათი
-    const QUERY = encodeURIComponent('*[_type == "product"]{title, price, isStock, "imageUrl": image.asset->url}');
+    const QUERY = encodeURIComponent('*[_type == "product"]{title, price, isStock, volume, "imageUrl": image.asset->url}');
     const URL = `https://${PROJECT_ID}.api.sanity.io/v2021-10-21/data/query/${DATASET}?query=${QUERY}`;
 
     try {
@@ -48,7 +48,7 @@ async function loadProducts() {
                         <img src="${product.imageUrl || 'productpics/placeholder.jpg'}" alt="${product.title}">
                         <span class="stock">${stockText}</span>
                         <h3>${product.title}</h3>
-                        <p>მოცულობა: 10მლ</p>
+                        <p>მოცულობა: ${product.volume || '10მლ'}</p>
                         <span class="price">₾${product.price}</span>
                         <a href="https://wa.me/995568905673?text=გამარჯობა,%20მინდა%20შევიძინო%20პოპერსი:%20${encodeURIComponent(product.title)}" 
                            target="_blank" 
