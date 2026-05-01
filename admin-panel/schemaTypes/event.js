@@ -4,11 +4,6 @@ export default {
   type: 'document',
   fields: [
     {
-      name: 'name',
-      title: 'ივენთის/პარტნიორის სახელი',
-      type: 'string'
-    },
-    {
       name: 'link',
       title: 'ინსტაგრამის/ვებ-გვერდის ლინკი',
       type: 'url'
