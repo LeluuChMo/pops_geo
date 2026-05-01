@@ -1,6 +1,6 @@
-const PROJECT_ID = "156rdx1d";
-const DATASET = "production";
-const query = encodeURIComponent(`*[_type == "catalogProduct"]{
+window.PROJECT_ID = "156rdx1d";
+window.DATASET = "production";
+var query = encodeURIComponent(`*[_type == "catalogProduct"]{
   title,
   volume,
   powerLevel,
