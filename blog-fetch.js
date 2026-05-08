@@ -1,5 +1,4 @@
 (function() {
-    // ყოველგვარი const PROJECT_ID-ის გარეშე, ვიყენებთ გლობალურს
     const blogQuery = encodeURIComponent(`*[_type == "blog"] | order(_createdAt desc){
         title,
         content,
@@ -14,10 +13,9 @@
             const blogContainer = document.getElementById('blog-container');
             if (!blogContainer) return;
 
-            blogContainer.innerHTML = ""; // ვასუფთავებთ კონტეინერს
+            blogContainer.innerHTML = ""; 
 
             result.forEach(post => {
-                // ტექსტში ენთერების შენარჩუნება (ბრაუზერისთვის <br>-ებად გადაქცევა)
                 const formattedContent = post.content ? post.content.replace(/\n/g, '<br>') : "";
 
                 blogContainer.innerHTML += `
