@@ -1,11 +1,8 @@
-// 1. პროექტის კონფიგურაცია
 const PROJECT_ID = '156rdx1d'; 
 const DATASET = "production";
 
-// 2. გვერდის ჩატვირთვისას გასაშვები ფუნქციები
 document.addEventListener("DOMContentLoaded", () => {
     
-    // ბურგერ მენიუს ლოგიკა
     const burger = document.getElementById("burger");
     const nav = document.getElementById("nav");
 
@@ -17,15 +14,12 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Sanity-დან მონაცემების წამოღება
     loadProducts();
-    loadEvents(); // <-- აქ დავამატეთ ივენთების გამოძახება
-
-    // სკროლერის (ისრების) გააქტიურება
+    loadEvents(); 
     setupSlider();
 });
 
-// 3. მთავარი ფუნქცია: Sanity-დან პროდუქტების წამოღება
+
 async function loadProducts() {
     const container = document.getElementById('products-container');
     if (!container) return;
@@ -65,7 +59,7 @@ async function loadProducts() {
     }
 }
 
-// --- ახალი ფუნქცია: ივენთების წამოღება ---
+
 async function loadEvents() {
     const eventsContainer = document.getElementById('events-container');
     if (!eventsContainer) return;
@@ -89,7 +83,7 @@ async function loadEvents() {
     }
 }
 
-// 4. სკროლერის ფუნქცია
+
 function setupSlider() {
     const wrapper = document.querySelector(".product-wrapper");
     const arrowNext = document.querySelector(".arrow-next");
@@ -134,7 +128,7 @@ function setupSlider() {
     }
 }
 
-// ჰედერის გაფერადება
+
 window.addEventListener("scroll", function () {
     const header = document.getElementById("header");
     if (header) {
