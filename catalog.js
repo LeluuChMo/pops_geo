@@ -1,6 +1,7 @@
 window.PROJECT_ID = "156rdx1d";
 window.DATASET = "production";
-var query = encodeURIComponent(`*[_type == "catalogProduct"]{
+
+var query = encodeURIComponent(`*[_type == "catalogProduct" && (displayLocation == "products" || displayLocation == "both")] | order(position asc){
   title,
   volume,
   powerLevel,
@@ -16,6 +17,8 @@ fetch(URL)
   .then(res => res.json())
   .then(({ result }) => {
     const container = document.getElementById('catalog-container');
+    if (!container || !result) return;
+
     container.innerHTML = result.map(product => `
       <div class="product-item">
         <div class="product-image">
@@ -31,10 +34,11 @@ fetch(URL)
           <span class="price">₾${product.price}</span>
           <p>${product.description}</p>
           ${product.isStock !== false ? `
-            <a href="https://wa.me/995568905673?text=გამარჯობა, მინდა შევიძინო: ${product.title}" 
+            <a href="https://wa.me/995568905673?text=გამარჯობა, მინდა შევიძინო: ${product.title}"
                target="_blank" class="buy-btn">შეძენა</a>
           ` : '<span class="out-of-stock-msg">არ არის მარაგში</span>'}
         </div>
       </div>
     `).join('');
-  });
+  })
+  .catch(err => console.error("პროდუქტების ჩატვირთვა ვერ მოხერხდა:", err));
