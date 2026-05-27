@@ -1,8 +1,12 @@
+import { orderRankField, orderRankOrdering } from '@sanity/orderable-document-list'
+
 export default {
   name: 'catalogProduct',
   title: 'პროდუქტების გვერდი',
   type: 'document',
+  orderings: [orderRankOrdering],
   fields: [
+    orderRankField({ type: 'catalogProduct' }),
     { name: 'title', title: 'სახელი', type: 'string' },
     { name: 'volume', title: 'მოცულობა (მლ)', type: 'string' },
     {
@@ -15,7 +19,6 @@ export default {
     { name: 'description', title: 'დეტალური აღწერა', type: 'text' },
     { name: 'image', title: 'სურათი', type: 'image' },
     { name: 'isStock', title: 'მარაგშია', type: 'boolean' },
-
     {
       name: 'displayLocation',
       title: 'სად გამოჩნდეს საიტზე?',
@@ -29,13 +32,6 @@ export default {
         layout: 'radio'
       },
       initialValue: 'products'
-    },
-    {
-      name: 'position',
-      title: 'რიგითობის ნომერი (მაგ: 1, 2, 3...)',
-      type: 'number',
-      description: 'რაც უფრო ნაკლებს ჩაწერთ (მაგ: 1), მით უფრო წინ გამოჩნდება საიტზე.',
-      initialValue: 1
     }
   ]
 }
