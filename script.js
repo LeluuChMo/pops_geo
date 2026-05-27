@@ -23,7 +23,7 @@ async function loadProducts() {
     const container = document.getElementById('products-container');
     if (!container) return;
 
-    const QUERY = encodeURIComponent('*[_type == "catalogProduct" && (displayLocation == "home" || displayLocation == "both")] | order(position asc){title, price, isStock, volume, "imageUrl": image.asset->url}');
+    const QUERY = encodeURIComponent('*[_type == "catalogProduct"] | order(orderRank asc){title, price, isStock, volume, "imageUrl": image.asset->url}');
     const URL = `https://${PROJECT_ID}.api.sanity.io/v2021-10-21/data/query/${DATASET}?query=${QUERY}`;
 
     try {

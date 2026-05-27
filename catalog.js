@@ -1,7 +1,8 @@
 window.PROJECT_ID = "156rdx1d";
 window.DATASET = "production";
 
-var query = encodeURIComponent(`*[_type == "catalogProduct" && (displayLocation == "products" || displayLocation == "both")] | order(position asc){
+
+var query = encodeURIComponent(`*[_type == "catalogProduct"] | order(orderRank asc){
   title,
   volume,
   powerLevel,
