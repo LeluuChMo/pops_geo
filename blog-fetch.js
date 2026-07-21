@@ -23,11 +23,37 @@
                         <img src="${post.imageUrl}" alt="${post.title}">
                         <div class="blogpage-content">
                             <h2>${post.title}</h2>
-                            <p>${formattedContent}</p>
+                            
+                            <div class="blog-text-container">
+                                <p>${formattedContent}</p>
+                            </div>
+
+                            <button class="toggle-blog-btn">სრულად ნახვა</button>
                         </div>
                     </div>
                 `;
             });
+
+            setupAccordion();
         })
         .catch(err => console.error("ბლოგები ვერ ჩაიტვირთა:", err));
+
+    function setupAccordion() {
+        const buttons = document.querySelectorAll('.toggle-blog-btn');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', function() {
+
+                const textContainer = this.previousElementSibling;
+
+                textContainer.classList.toggle('expanded');
+
+                if (textContainer.classList.contains('expanded')) {
+                    this.textContent = 'აკეცვა';
+                } else {
+                    this.textContent = 'სრულად ნახვა';
+                }
+            });
+        });
+    }
 })();
