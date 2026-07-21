@@ -16,7 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     loadProducts();
     loadEvents(); 
-    setupSlider();
 });
 
 
@@ -24,7 +23,7 @@ async function loadProducts() {
     const container = document.getElementById('products-container');
     if (!container) return;
 
-    const QUERY = encodeURIComponent('*[_type == "product"]{title, price, isStock, volume, "imageUrl": image.asset->url}');
+    const QUERY = encodeURIComponent('*[_type == "catalogProduct"] | order(orderRank asc){title, price, isStock, volume, "imageUrl": image.asset->url, powerLevel, description}');
     const URL = `https://${PROJECT_ID}.api.sanity.io/v2021-10-21/data/query/${DATASET}?query=${QUERY}`;
 
     try {
@@ -32,6 +31,9 @@ async function loadProducts() {
         const data = await response.json();
 
         if (data.result && data.result.length > 0) {
+
+            container.innerHTML = "";
+
             const sanityProductsHtml = data.result.map(product => {
                 const stockClass = product.isStock !== false ? 'in-stock' : 'out-of-stock';
                 const stockText = product.isStock !== false ? 'მარაგშია' : 'არ არის მარაგში';
@@ -43,8 +45,8 @@ async function loadProducts() {
                         <h3>${product.title}</h3>
                         <p>მოცულობა: ${product.volume || '10მლ'}</p>
                         <span class="price">₾${product.price}</span>
-                        <a href="https://wa.me/995568905673?text=გამარჯობა,%20მინდა%20შევიძინო%20პოპერსი:%20${encodeURIComponent(product.title)}" 
-                           target="_blank" 
+                        <a href="https://wa.me/995568905673?text=გამარჯობა,%20მინდა%20შევიძინო%20პოპერსი:%20${encodeURIComponent(product.title)}"
+                           target="_blank"
                            class="buy-btn">
                            შეძენა
                         </a>
@@ -52,7 +54,10 @@ async function loadProducts() {
                 `;
             }).join('');
 
-            container.innerHTML += sanityProductsHtml;
+            container.innerHTML = sanityProductsHtml;
+
+
+            setupSlider();
         }
     } catch (error) {
         console.error("Sanity Products Error:", error);
@@ -90,7 +95,12 @@ function setupSlider() {
     const arrowPrev = document.querySelector(".arrow-prev");
 
     if (wrapper && arrowNext && arrowPrev) {
-        arrowNext.addEventListener("click", () => {
+        const newArrowNext = arrowNext.cloneNode(true);
+        const newArrowPrev = arrowPrev.cloneNode(true);
+        arrowNext.parentNode.replaceChild(newArrowNext, arrowNext);
+        arrowPrev.parentNode.replaceChild(newArrowPrev, arrowPrev);
+
+        newArrowNext.addEventListener("click", () => {
             const card = wrapper.querySelector(".product-card");
             if (card) {
                 const cardWidth = card.offsetWidth + 20;
@@ -98,7 +108,7 @@ function setupSlider() {
             }
         });
 
-        arrowPrev.addEventListener("click", () => {
+        newArrowPrev.addEventListener("click", () => {
             const card = wrapper.querySelector(".product-card");
             if (card) {
                 const cardWidth = card.offsetWidth + 20;
