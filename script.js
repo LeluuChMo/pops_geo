@@ -3,6 +3,7 @@ const DATASET = "production";
 
 document.addEventListener("DOMContentLoaded", () => {
     
+    // 1. Burger Menu-ს ლოგიკა
     const burger = document.getElementById("burger");
     const nav = document.getElementById("nav");
 
@@ -14,11 +15,37 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // 2. ბლოგის აკეცვა / ჩამოშლის ლოგიკა (Event Delegation)
+    const blogContainer = document.getElementById("home-blog-container");
+
+    if (blogContainer) {
+        blogContainer.addEventListener("click", (event) => {
+            const button = event.target.closest(".toggle-blog-btn");
+            if (!button) return;
+
+            const blogItem = button.closest(".blog-item") || button.closest(".blog-content");
+            if (!blogItem) return;
+
+            const textContainer = blogItem.querySelector(".blog-text-container");
+            if (!textContainer) return;
+
+            textContainer.classList.toggle("expanded");
+
+            if (textContainer.classList.contains("expanded")) {
+                button.textContent = "აკეცვა";
+            } else {
+                button.textContent = "სრულად ნახვა";
+            }
+        });
+    }
+
     loadProducts();
     loadEvents(); 
+    loadBlogs(); 
 });
 
 
+// --- პროდუქტების ჩატვირთვა ---
 async function loadProducts() {
     const container = document.getElementById('products-container');
     if (!container) return;
@@ -56,7 +83,6 @@ async function loadProducts() {
 
             container.innerHTML = sanityProductsHtml;
 
-
             setupSlider();
         }
     } catch (error) {
@@ -65,6 +91,7 @@ async function loadProducts() {
 }
 
 
+// --- ივენთების / პარტნიორების ჩატვირთვა ---
 async function loadEvents() {
     const eventsContainer = document.getElementById('events-container');
     if (!eventsContainer) return;
@@ -89,6 +116,45 @@ async function loadEvents() {
 }
 
 
+// --- ბლოგების ჩატვირთვა (homePageBlog სქემის მიხედვით) ---
+async function loadBlogs() {
+    const blogContainer = document.getElementById('home-blog-container');
+    if (!blogContainer) return;
+
+    const BLOG_QUERY = encodeURIComponent('*[_type == "homePageBlog"]{title, description, "imageUrl": image.asset->url}');
+    const BLOG_URL = `https://${PROJECT_ID}.api.sanity.io/v2021-10-21/data/query/${DATASET}?query=${BLOG_QUERY}`;
+
+    try {
+        const response = await fetch(BLOG_URL);
+        const data = await response.json();
+
+        if (data.result && data.result.length > 0) {
+            blogContainer.innerHTML = data.result.map((blog, index) => {
+                const isReverse = index % 2 !== 0 ? 'reverse' : '';
+
+                return `
+                    <div class="blog-item ${isReverse}">
+                        <div class="blog-image">
+                            <img src="${blog.imageUrl || 'productpics/placeholder.jpg'}" alt="${blog.title}">
+                        </div>
+                        <div class="blog-content">
+                            <h3>${blog.title}</h3>
+                            <div class="blog-text-container">
+                                <p>${blog.description || ''}</p>
+                            </div>
+                            <button class="toggle-blog-btn">ვრცლად</button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+    } catch (error) {
+        console.error("Sanity Blog Error:", error);
+    }
+}
+
+
+// --- სლაიდერის ფუნქციონალი ---
 function setupSlider() {
     const wrapper = document.querySelector(".product-wrapper");
     const arrowNext = document.querySelector(".arrow-next");
@@ -139,6 +205,7 @@ function setupSlider() {
 }
 
 
+// --- Header Sticky ეფექტი ---
 window.addEventListener("scroll", function () {
     const header = document.getElementById("header");
     if (header) {
