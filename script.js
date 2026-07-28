@@ -29,12 +29,16 @@ document.addEventListener("DOMContentLoaded", () => {
             const textContainer = blogItem.querySelector(".blog-text-container");
             if (!textContainer) return;
 
-            textContainer.classList.toggle("expanded");
+            // "expanded" კლასის დამატება/მოშორება
+            const isExpanding = textContainer.classList.toggle("expanded");
 
-            if (textContainer.classList.contains("expanded")) {
-                button.textContent = "აკეცვა";
+            if (isExpanding) {
+                button.textContent = "ნაკლების ნახვა";
             } else {
-                button.textContent = "სრულად ნახვა";
+                button.textContent = "ვრცლად";
+                
+                // თუ აიკეცა, ნელა ამოასქროლოს ბლოგის პოსტის საწყისთან
+                blogItem.scrollIntoView({ behavior: "smooth", block: "start" });
             }
         });
     }
