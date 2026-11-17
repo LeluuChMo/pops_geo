@@ -14,6 +14,19 @@ export default {
       title: 'ფასი'
     },
     {
+      name: 'discountPrice',
+      type: 'number',
+      title: 'ფასდაკლებული ფასი (ლარში)',
+      description: 'ჩაწერე ახალი ფასი მხოლოდ მაშინ, როცა ფასდაკლებაა'
+    },
+    {
+      name: 'onSale',
+      title: 'ფასდაკლების ჩართვა',
+      type: 'boolean',
+      initialValue: false,
+      description: 'გადართე, რომ საიტზე ფასდაკლება გააქტიურდეს'
+    },
+    {
       name: 'image',
       type: 'image',
       title: 'პროდუქტის ფოტო',
