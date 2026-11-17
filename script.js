@@ -77,15 +77,13 @@ async function loadProducts() {
                         <h3>${product.title}</h3>
                         <p>მოცულობა: ${product.volume || '10მლ'}</p>
                         
-                        <!-- ძველი სპანის შენარჩუნებით დამატებული ფასდაკლება -->
-                        <div class="price-box">
-                            ${product.onSale && product.discountPrice ? `
-                                <span class="old-price">₾${product.price}</span>
-                                <span class="price sale-price">₾${product.discountPrice}</span>
-                            ` : `
-                                <span class="price">₾${product.price}</span>
-                            `}
-                        </div>
+                        <!-- ფასი უდგას ზუსტად ისე, როგორც თავიდან ჰქონდა -->
+                        ${product.onSale && product.discountPrice ? `
+                            <span class="old-price">₾${product.price}</span>
+                            <span class="price sale-price">₾${product.discountPrice}</span>
+                        ` : `
+                            <span class="price">₾${product.price}</span>
+                        `}
 
                         <a href="https://wa.me/995568905673?text=გამარჯობა,%20მინდა%20შევიძინო%20პოპერსი:%20${encodeURIComponent(product.title)}"
                            target="_blank"
