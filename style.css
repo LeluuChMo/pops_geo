@@ -996,24 +996,24 @@ font-size: 50px;
   font-size: 20px;
 }
 
-
-
-
-
-.price-box {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  margin: 8px 0;
+/* ფასების კონტეინერი - გვერდიგვერდ განლაგებისთვის */
+.price-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* დაშორება ძველ და ახალ ფასს შორის */
+    margin: 10px 0;
 }
 
+/* ძველი გადახაზული ფასი (ნაცრისფერი, რომ არ ერთმანეთს არ შეერწყას) */
 .old-price {
-  text-decoration: line-through;
-  color: #888;
-  font-size: 14px;
+    text-decoration: line-through;
+    color: #888888; 
+    font-size: 16px;
 }
 
+/* ახალი ფასდაკლებული ფასი */
 .sale-price {
-  color: #e44d26; 
-  font-weight: bold;
+    color: #ff4d4d; /* წითელი ან შენი სასურველი ფერი */
+    font-weight: bold;
 }
