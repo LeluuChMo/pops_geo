@@ -77,7 +77,7 @@ async function loadProducts() {
                         <h3>${product.title}</h3>
                         <p>მოცულობა: ${product.volume || '10მლ'}</p>
                         
-                        <!-- ფასის ნაწილი ფასდაკლების შემოწმებით -->
+                        <!-- ძველი სპანის შენარჩუნებით დამატებული ფასდაკლება -->
                         <div class="price-box">
                             ${product.onSale && product.discountPrice ? `
                                 <span class="old-price">₾${product.price}</span>
