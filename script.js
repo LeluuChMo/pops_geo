@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 // --- პროდუქტების ჩატვირთვა ---
-// --- პროდუქტების ჩატვირთვა ---
+
 async function loadProducts() {
     const container = document.getElementById('products-container');
     if (!container) return;
