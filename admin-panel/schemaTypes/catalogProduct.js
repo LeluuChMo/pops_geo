@@ -16,6 +16,19 @@ export default {
       description: 'ჩაწერე: l1, l2, l3, l4 ან l5 (დიზაინისთვის)'
     },
     { name: 'price', title: 'ფასი', type: 'number' },
+    {
+      name: 'discountPrice',
+      title: 'ფასდაკლებული ფასი (ლარში)',
+      type: 'number',
+      description: 'ჩაწერე ახალი ფასი მხოლოდ მაშინ, როცა ფასდაკლებაა'
+    },
+    {
+      name: 'onSale',
+      title: 'ფასდაკლების ჩართვა',
+      type: 'boolean',
+      initialValue: false,
+      description: 'გადართე, რომ საიტზე ფასდაკლება გააქტიურდეს'
+    },
     { name: 'description', title: 'დეტალური აღწერა', type: 'text' },
     { name: 'image', title: 'სურათი', type: 'image' },
     { name: 'isStock', title: 'მარაგშია', type: 'boolean' },
