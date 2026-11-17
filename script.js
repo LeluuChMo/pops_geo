@@ -50,11 +50,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 // --- პროდუქტების ჩატვირთვა ---
+// --- პროდუქტების ჩატვირთვა ---
 async function loadProducts() {
     const container = document.getElementById('products-container');
     if (!container) return;
 
-    const QUERY = encodeURIComponent('*[_type == "catalogProduct"] | order(orderRank asc){title, price, isStock, volume, "imageUrl": image.asset->url, powerLevel, description}');
+    const QUERY = encodeURIComponent('*[_type == "catalogProduct"] | order(orderRank asc){title, price, discountPrice, onSale, isStock, volume, "imageUrl": image.asset->url, powerLevel, description}');
     const URL = `https://${PROJECT_ID}.api.sanity.io/v2021-10-21/data/query/${DATASET}?query=${QUERY}`;
 
     try {
@@ -75,7 +76,17 @@ async function loadProducts() {
                         <span class="stock">${stockText}</span>
                         <h3>${product.title}</h3>
                         <p>მოცულობა: ${product.volume || '10მლ'}</p>
-                        <span class="price">₾${product.price}</span>
+                        
+                        <!-- ფასის ნაწილი ფასდაკლების შემოწმებით -->
+                        <div class="price-box">
+                            ${product.onSale && product.discountPrice ? `
+                                <span class="old-price">₾${product.price}</span>
+                                <span class="price sale-price">₾${product.discountPrice}</span>
+                            ` : `
+                                <span class="price">₾${product.price}</span>
+                            `}
+                        </div>
+
                         <a href="https://wa.me/995568905673?text=გამარჯობა,%20მინდა%20შევიძინო%20პოპერსი:%20${encodeURIComponent(product.title)}"
                            target="_blank"
                            class="buy-btn">
@@ -93,7 +104,6 @@ async function loadProducts() {
         console.error("Sanity Products Error:", error);
     }
 }
-
 
 // --- ივენთების / პარტნიორების ჩატვირთვა ---
 async function loadEvents() {
