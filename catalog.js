@@ -1,12 +1,13 @@
 window.PROJECT_ID = "156rdx1d";
 window.DATASET = "production";
 
-
 var query = encodeURIComponent(`*[_type == "catalogProduct"] | order(orderRank asc){
   title,
   volume,
   powerLevel,
   price,
+  discountPrice,
+  onSale,
   description,
   isStock,
   "imageUrl": image.asset->url
@@ -32,7 +33,17 @@ fetch(URL)
           <div class="bar">
             <div class="fill ${product.powerLevel || 'l1'}"></div>
           </div>
-          <span class="price">₾${product.price}</span>
+          
+          <!-- ფასის ნაწილი ფასდაკლების შემოწმებით -->
+          <div class="price-box">
+            ${product.onSale && product.discountPrice ? `
+              <span class="old-price">₾${product.price}</span>
+              <span class="price sale-price">₾${product.discountPrice}</span>
+            ` : `
+              <span class="price">₾${product.price}</span>
+            `}
+          </div>
+
           <p>${product.description}</p>
           ${product.isStock !== false ? `
             <a href="https://wa.me/995568905673?text=გამარჯობა, მინდა შევიძინო: ${product.title}"
