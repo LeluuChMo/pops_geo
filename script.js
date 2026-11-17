@@ -50,7 +50,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 // --- პროდუქტების ჩატვირთვა ---
-
 async function loadProducts() {
     const container = document.getElementById('products-container');
     if (!container) return;
@@ -77,13 +76,15 @@ async function loadProducts() {
                         <h3>${product.title}</h3>
                         <p>მოცულობა: ${product.volume || '10მლ'}</p>
                         
-                        <!-- ფასი უდგას ზუსტად ისე, როგორც თავიდან ჰქონდა -->
-                        ${product.onSale && product.discountPrice ? `
-                            <span class="old-price">₾${product.price}</span>
-                            <span class="price sale-price">₾${product.discountPrice}</span>
-                        ` : `
-                            <span class="price">₾${product.price}</span>
-                        `}
+                        <!-- ფასები ერთმანეთის გვერდით -->
+                        <div class="price-container">
+                            ${product.onSale && product.discountPrice ? `
+                                <span class="old-price">₾${product.price}</span>
+                                <span class="price sale-price">₾${product.discountPrice}</span>
+                            ` : `
+                                <span class="price">₾${product.price}</span>
+                            `}
+                        </div>
 
                         <a href="https://wa.me/995568905673?text=გამარჯობა,%20მინდა%20შევიძინო%20პოპერსი:%20${encodeURIComponent(product.title)}"
                            target="_blank"

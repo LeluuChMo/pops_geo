@@ -35,10 +35,11 @@ fetch(URL)
           </div>
           
           <!-- ფასის ნაწილი ფასდაკლების შემოწმებით -->
-          <div class="price-box">
+
+          <div class="price-box" style="display: flex; align-items: baseline; gap: 10px;">
             ${product.onSale && product.discountPrice ? `
-              <span class="old-price">₾${product.price}</span>
-              <span class="price sale-price">₾${product.discountPrice}</span>
+              <span class="old-price" style="text-decoration: line-through; color: #888888; font-size: 16px;">₾${product.price}</span>
+              <span class="price sale-price" style="color: #ff4d4d; font-weight: bold;">₾${product.discountPrice}</span>
             ` : `
               <span class="price">₾${product.price}</span>
             `}
